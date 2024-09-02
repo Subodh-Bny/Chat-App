@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import GenderCheckbox from "./GenderCheckbox";
 import { Link } from "react-router-dom";
-import useSignup from "../../Hooks/useSignup";
+import useSignup from "../../hooks/useSignup";
 
 function Signup() {
   const [inputs, setInputs] = useState({
@@ -108,8 +108,13 @@ function Signup() {
             <button
               type=""
               className="btn btn-block btn-sm mt-2 border border-slate-700"
+              disabled={loading}
             >
-              Sign Up
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "signup"
+              )}
             </button>
           </div>
         </form>
