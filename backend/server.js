@@ -22,8 +22,13 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
+//joining frontend
+//__dirname has the path of root directory
+//dist is the folder thats created when building
+//express.static serves the frontend as static files
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
+//sending the frontend index.html basically we can run the frontend from the server
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
